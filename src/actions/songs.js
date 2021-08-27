@@ -4,12 +4,12 @@ import SongService from "../services/SongService";
 export const createSong = (song) => async (dispatch) => {
     try {
         const res = await SongService.create(song);
-    
+        
         dispatch({
             type: CREATE_SONG,
             payload: res.data,
         });
-    
+
         return Promise.resolve(res.data);
     } catch (err) {
         return Promise.reject(err);
@@ -27,7 +27,7 @@ export const getAllSongs = () => async (dispatch) => {
         
         return Promise.resolve(res.data);
     } catch (err) {
-        console.log(err);
+        return Promise.reject(err);
     }
 };
 

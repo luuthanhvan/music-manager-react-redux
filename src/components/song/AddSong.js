@@ -22,10 +22,8 @@ function AddSong(){
         setSongValues(values => ({ ...values, [name]: value }));
     };
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        dispatch(createSong(songValues));
-        history.push("/")
+    const onSubmit = () => {
+        dispatch(createSong(songValues)).then(() => {history.push('/')});
     }
 
     return(

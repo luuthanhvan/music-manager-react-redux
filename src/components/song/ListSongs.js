@@ -1,10 +1,10 @@
 import { React } from 'react';
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button} from '@material-ui/core';
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@material-ui/core';
 import {Delete, Edit} from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
 
 function ListSongs(props){
-    const { listSongs } = props;
+    const { listSongs, onDelete } = props;
 
     return(
         <div>
@@ -33,11 +33,13 @@ function ListSongs(props){
                                 <TableCell>
                                     <div className="row">
                                         <div className="col-2 me-2">
-                                            <Button>
-                                                <NavLink to="/edit"><Edit /></NavLink>
-                                            </Button>
+                                            <button className="btn">
+                                                <NavLink className="link" to="/edit"><Edit /></NavLink>
+                                            </button>
                                         </div>
-                                        <div className="col-2"><Button><Delete /></Button></div>
+                                        <div className="col-2">
+                                            <button className="btn" onClick={onDelete} value={song._id}><Delete /></button>
+                                        </div>
                                     </div>
                                 </TableCell>
                             </TableRow>
