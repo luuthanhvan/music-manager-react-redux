@@ -52,7 +52,7 @@ export const updateSong = (id, data) => async (dispatch) => {
     
         dispatch({
             type: UPDATE_SONG,
-            payload: data,
+            payload: res.data,
         });
     
         return Promise.resolve(res.data);

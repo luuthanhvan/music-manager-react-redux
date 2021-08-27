@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 function ListSongs(props){
     const { listSongs, onDelete } = props;
-
+    
     return(
         <div>
             <TableContainer component={Paper}>
@@ -33,8 +33,8 @@ function ListSongs(props){
                                 <TableCell>
                                     <div className="row">
                                         <div className="col-2 me-2">
-                                            <button className="btn">
-                                                <NavLink className="link" to="/edit"><Edit /></NavLink>
+                                            <button className="btn" value={song._id}>
+                                                <NavLink className="link" to={{pathname: '/edit', state: song._id}}><Edit /></NavLink>
                                             </button>
                                         </div>
                                         <div className="col-2">
