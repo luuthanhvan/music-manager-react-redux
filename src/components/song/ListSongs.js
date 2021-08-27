@@ -1,7 +1,7 @@
+import { React } from 'react';
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button} from '@material-ui/core';
 import {Delete, Edit} from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
-import mp3_file from '../../assets/Gone.mp3';
 
 function ListSongs(props){
     const { listSongs } = props;
@@ -28,7 +28,7 @@ function ListSongs(props){
                                 <TableCell>{song.genre}</TableCell>
                                 <TableCell>{song.singer}</TableCell>
                                 <TableCell>
-                                    <audio src={mp3_file} controls/>
+                                    <audio src={song.link} controls />
                                 </TableCell>
                                 <TableCell>
                                     <div className="row">

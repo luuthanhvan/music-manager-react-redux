@@ -1,31 +1,31 @@
-import http from "../http-common";
+import http from "../http-common"
 
 const getAll = () => {
-  return http.get("/songs");
+  	return http.get("/song");
 };
 
 const get = id => {
-  return http.get(`/songs/${id}`);
+  	return http.get(`/song/songId/${id}`);
 };
 
 const create = data => {
-  return http.post("/song", data);
+  	return http.post("/song", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/songs/${id}`, data);
+  	return http.put(`/song/songId/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/songs/${id}`);
+  	return http.delete(`/song/songId/${id}`);
 };
 
 const SongService = {
-  getAll,
-  get,
-  create,
-  update,
-  remove
+	getAll,
+	get,
+	create,
+	update,
+	remove
 };
 
 export default SongService;

@@ -1,4 +1,4 @@
-import { CREATE_SONG, RETRIEVE_SONGS, RETRIEVE_SONG, UPDATE_SONG, DELETE_SONG } from './types';
+import { CREATE_SONG, GET_ALL_SONGS, GET_SONG, UPDATE_SONG, DELETE_SONG } from './types';
 import SongService from "../services/SongService";
 
 export const createSong = (song) => async (dispatch) => {
@@ -16,27 +16,31 @@ export const createSong = (song) => async (dispatch) => {
     }
 };
 
-export const retrieveSongs = () => async (dispatch) => {
+export const getAllSongs = () => async (dispatch) => {
     try {
         const res = await SongService.getAll();
     
         dispatch({
-            type: RETRIEVE_SONGS,
+            type: GET_ALL_SONGS,
             payload: res.data,
         });
+        
+        return Promise.resolve(res.data);
     } catch (err) {
         console.log(err);
     }
 };
 
-export const retrieveSong = (id) => async (dispatch) => {
+export const getSong = (id) => async (dispatch) => {
     try {
         const res = await SongService.get(id);
     
         dispatch({
-            type: RETRIEVE_SONG,
+            type: GET_SONG,
             payload: res.data,
         });
+
+        return Promise.resolve(res.data);
     } catch (err) {
         console.log(err);
     }
@@ -65,7 +69,8 @@ export const deleteSong = (id) => async (dispatch) => {
             type: DELETE_SONG,
             payload: { id },
         });
+
     } catch (err) {
-      console.log(err);
+        console.log(err);
     }
 };

@@ -17,7 +17,7 @@ function App() {
 
 			<div className="container mt-3">
 				<Switch>
-					<Route exact path={["/"]} component={Song} />
+					<Route exact path="/" component={Song} />
 					<Route exact path="/add" component={AddSong} />
 					<Route path="/edit" component={EditSong} />
 				</Switch>

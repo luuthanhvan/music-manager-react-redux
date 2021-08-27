@@ -14,7 +14,8 @@ function SongForm(props){
                 <div className="row mt-5">
                     <TextField 
                         className="form-control col me-5" 
-                        required label="Name" 
+                        required 
+                        label="Name" 
                         variant="outlined" 
                         name="name"
                         onChange={handleInputChange}
