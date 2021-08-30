@@ -1,8 +1,8 @@
-# Music manager
+# Music manager using React + Redux
 
 # Running
 ```
-    cd music-manager
+    cd music-manager-react-redux
     npm install
     npm start
 ```
