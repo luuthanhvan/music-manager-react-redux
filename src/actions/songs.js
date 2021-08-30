@@ -7,12 +7,13 @@ export const createSong = (song) => async (dispatch) => {
         
         dispatch({
             type: CREATE_SONG,
-            payload: res.data,
+            payload: res,
         });
 
-        return Promise.resolve(res.data);
-    } catch (err) {
-        return Promise.reject(err);
+        return res;
+    }
+    catch (err) {
+        return err;
     }
 };
 
@@ -25,9 +26,10 @@ export const getAllSongs = () => async (dispatch) => {
             payload: res.data,
         });
         
-        return Promise.resolve(res.data);
-    } catch (err) {
-        return Promise.reject(err);
+        return res.data;
+    } 
+    catch (err) {
+        return err;
     }
 };
 
@@ -40,9 +42,10 @@ export const getSong = (id) => async (dispatch) => {
             payload: res.data,
         });
 
-        return Promise.resolve(res.data);
-    } catch (err) {
-        console.log(err);
+        return res.data;
+    } 
+    catch (err) {
+        return err;
     }
 };
 
@@ -55,22 +58,25 @@ export const updateSong = (id, data) => async (dispatch) => {
             payload: res.data,
         });
     
-        return Promise.resolve(res.data);
-    } catch (err) {
-        return Promise.reject(err);
+        return res.data;
+    } 
+    catch (err) {
+        return err;
     }
 };
 
 export const deleteSong = (id) => async (dispatch) => {
     try {
-        await SongService.remove(id);
+        const res = await SongService.remove(id);
     
         dispatch({
             type: DELETE_SONG,
             payload: { id },
         });
 
-    } catch (err) {
-        console.log(err);
+        return res.data;
+    } 
+    catch (err) {
+        return err;
     }
 };

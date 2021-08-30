@@ -23,7 +23,8 @@ function AddSong(){
     };
 
     const onSubmit = () => {
-        dispatch(createSong(songValues)).then(() => {history.push('/')});
+        dispatch(createSong(songValues));
+        history.push('/');
     }
 
     return(

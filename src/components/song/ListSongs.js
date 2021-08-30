@@ -21,28 +21,29 @@ function ListSongs(props){
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {listSongs.map((song, index) => (
-                            <TableRow key={song.name}>
-                                <TableCell>{index+1}</TableCell>
-                                <TableCell>{song.name}</TableCell>
-                                <TableCell>{song.genre}</TableCell>
-                                <TableCell>{song.singer}</TableCell>
-                                <TableCell>
-                                    <audio src={song.link} controls />
-                                </TableCell>
-                                <TableCell>
-                                    <div className="row">
-                                        <div className="col-2 me-2">
-                                            <button className="btn" value={song._id}>
-                                                <NavLink className="link" to={{pathname: '/edit', state: song._id}}><Edit /></NavLink>
-                                            </button>
+                        {!listSongs || listSongs.length === 0 ? <TableRow><TableCell colSpan="6">No data</TableCell></TableRow> : 
+                            listSongs.map((song, index) => (
+                                <TableRow key={song.name}>
+                                    <TableCell>{index+1}</TableCell>
+                                    <TableCell>{song.name}</TableCell>
+                                    <TableCell>{song.genre}</TableCell>
+                                    <TableCell>{song.singer}</TableCell>
+                                    <TableCell>
+                                        <audio src={song.link} controls />
+                                    </TableCell>
+                                    <TableCell>
+                                        <div className="row">
+                                            <div className="col-2 me-2">
+                                                <button className="btn">
+                                                    <NavLink className="link" to={{pathname: '/edit', state: song._id}}><Edit /></NavLink>
+                                                </button>
+                                            </div>
+                                            <div className="col-2">
+                                                <button className="btn" onClick={onDelete} value={song._id}><Delete /></button>
+                                            </div>
                                         </div>
-                                        <div className="col-2">
-                                            <button className="btn" onClick={onDelete} value={song._id}><Delete /></button>
-                                        </div>
-                                    </div>
-                                </TableCell>
-                            </TableRow>
+                                    </TableCell>
+                                </TableRow>
                         ))}
                     </TableBody>
                 </Table>

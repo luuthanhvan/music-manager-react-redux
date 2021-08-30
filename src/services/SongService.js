@@ -1,23 +1,25 @@
-import http from "../http-common"
+import axios from "axios";
+
+const SERVER_URL = "http://localhost:5000";
 
 const getAll = () => {
-  	return http.get("/song");
+  	return axios.get(`${SERVER_URL}/songs`);
 };
 
 const get = id => {
-  	return http.get(`/song/songId/${id}`);
+  	return axios.get(`${SERVER_URL}/song/${id}`);
 };
 
 const create = data => {
-  	return http.post("/song", data);
+  	return axios.post(`${SERVER_URL}/song`, data);
 };
 
 const update = (id, data) => {
-  	return http.put(`/song/songId/${id}`, data);
+  	return axios.put(`${SERVER_URL}/song/${id}`, data);
 };
 
 const remove = id => {
-  	return http.delete(`/song/songId/${id}`);
+  	return axios.delete(`${SERVER_URL}/song/${id}`);
 };
 
 const SongService = {

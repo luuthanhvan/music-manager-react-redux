@@ -13,8 +13,9 @@ function Song(){
     useEffect(() => {
         dispatch(
             getAllSongs()).then((res => {
-                setListSongs(res.data);
-        }))
+                setListSongs(res.data.songs);
+            }
+        ))
     }, [listSongs]);
 
     const onDelete = (event) => {

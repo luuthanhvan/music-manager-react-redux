@@ -20,11 +20,11 @@ function EditSong(){
 
     useEffect(() => {
         dispatch(getSong(songId)).then((res) => {
-            if(res){
-                setSongValues(res.data);
+            if(res.data){
+                setSongValues(res.data.song);
             }
         });
-    }, [])
+    }, [])                                                                                                                                                                  
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -32,7 +32,8 @@ function EditSong(){
     };
 
     const onSubmit = () => {
-        dispatch(updateSong(songId, songValues)).then(() => { history.push('/') });
+        dispatch(updateSong(songId, songValues));
+        history.push('/');
     }
 
     return(
